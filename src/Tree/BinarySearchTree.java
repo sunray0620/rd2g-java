@@ -11,41 +11,44 @@ public class BinarySearchTree {
 		TreeNode root = null;
 		for (int i = 0; i < generateSize; ++i) {
 			int newValue = minValue + rand.nextInt(maxValue + 1);
-			insert(root, newValue);
+			insertNode(root, newValue);
 		}
 		return root;
 	}
 
-	public static void insert(TreeNode root, int newValue) {
+	public static TreeNode insertNode(TreeNode root, int newValue) {
 		if (root == null) {
-			root = new TreeNode(newValue, null, null);
-		}
-		TreeNode p = null;
-		TreeNode cur = root;
-		while (cur != null) {
-			p = cur;
-			if (newValue <= cur.data) {
-				cur = cur.left;
-			} else {
-				cur = cur.right;
-			}
+			return new TreeNode(newValue, null, null);
 		}
 
-		if (newValue <= p.data) {
-			p.left = new TreeNode(newValue, null, null);
-		} else {
-			p.right = new TreeNode(newValue, null, null);
+		TreeNode cur = root;
+		while (true) {
+			if (newValue <= cur.data) {
+				if (cur.left != null) {
+					cur = cur.left;
+				} else {
+					cur.left = new TreeNode(newValue, null, null);
+					return root;
+				}
+			} else {
+				if (cur.right != null) {
+					cur = cur.right;
+				} else {
+					cur.right = new TreeNode(newValue, null, null);
+					return root;
+				}
+			}
 		}
 	}
 
-	public static TreeNode insertNodeRcr(TreeNode curNode, int newValue) {
+	public static TreeNode insertNodeRcrv(TreeNode curNode, int newValue) {
 		if (curNode == null) {
 			return new TreeNode(newValue, null, null);
 		}
 		if (newValue <= curNode.data) {
-			curNode.left = insertNodeRcr(curNode.left, newValue);
+			curNode.left = insertNodeRcrv(curNode.left, newValue);
 		} else {
-			curNode.right = insertNodeRcr(curNode.right, newValue);
+			curNode.right = insertNodeRcrv(curNode.right, newValue);
 		}
 		return curNode;
 	}
