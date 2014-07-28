@@ -7,6 +7,12 @@ import java.util.Stack;
 
 public class LeetCode {
 
+	/*************************
+	 * Valid Number
+	 * 
+	 * @param s
+	 * @return
+	 *************************/
 	public boolean isNumber(String s) {
 		s = s.trim();
 		if (s.length() == 0)
@@ -20,7 +26,7 @@ public class LeetCode {
 			String[] parts = s.split("e");
 			if (parts.length != 2)
 				return false;
-			return isReal(parts[0]) && isReal(parts[1]);
+			return isReal(parts[0]) && isInt(parts[1]);
 		}
 	}
 
@@ -48,7 +54,7 @@ public class LeetCode {
 		return true;
 	}
 
-	public boolean isInt(String s) {
+	private boolean isInt(String s) {
 		if (s.indexOf('+') == 0 || s.indexOf('-') == 0) {
 			s = s.substring(1);
 		}
@@ -58,7 +64,7 @@ public class LeetCode {
 		return isAllDigit(s);
 	}
 
-	public boolean isAllDigit(String s) {
+	private boolean isAllDigit(String s) {
 		for (int i = 0; i < s.length(); ++i) {
 			if (!Character.isDigit(s.charAt(i)))
 				return false;
@@ -66,9 +72,12 @@ public class LeetCode {
 		return true;
 	}
 
-	/*
-	 * Leet Code Problem: Sqrt(x)
-	 */
+	/****************************
+	 * Sqrt(x)
+	 * 
+	 * @param x
+	 * @return
+	 ****************************/
 	public int sqrt(int x) {
 		int maxResult = 46341;
 		int minResult = 0;
@@ -116,6 +125,7 @@ public class LeetCode {
 				continue;
 			// Prepare for next cursive call
 			s.push(num[i]);
+			// Use i to use duplicate elements.
 			generteSubset(num, i, target, curSum + num[i], s, ret);
 			s.pop();
 		}
