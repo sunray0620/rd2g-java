@@ -19,6 +19,7 @@ public class ArrayUtil {
 				System.out.println();
 			}
 		}
+		System.out.println();
 	}
 
 	public static void printArrayWithIndex(int[] intArray, int sizePerLine) {
@@ -30,13 +31,16 @@ public class ArrayUtil {
 				System.out.println();
 			}
 		}
+		System.out.println();
 	}
 
+	/*
+	 * Generate an array of random integer in range between [minValue] and [maxValue]
+	 */
 	public static int[] generateRandomArray(int generateSize, int minValue, int maxValue) {
-		int range = maxValue - minValue + 1;
-		Random rand = new Random((new Date()).getTime());
-
 		int[] generatedArray = new int[generateSize];
+		Random rand = new Random((new Date()).getTime());
+		int range = maxValue - minValue + 1;
 		for (int i = 0; i < generatedArray.length; ++i) {
 			int newValue = minValue + rand.nextInt(range);
 			generatedArray[i] = newValue;

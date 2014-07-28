@@ -1,21 +1,13 @@
 package UnitTests;
 
-import Array.ArrayUtil;
-import Tree.BinarySearchTree;
-import Tree.BinaryTreeUtil;
-import Tree.TreeNode;
+import LeetCode.LeetCode;
 
 public class ArrayTests {
 	public static void main(String[] args) {
-		TreeNode root = null;
+		LeetCode f = new LeetCode();
+		int[] testArray = { 1 };
+		int target = 1;
 
-		int[] testArray = ArrayUtil.generateRandomArray(20, 11, 20);
-		for (int i = 0; i < testArray.length; ++i) {
-			root = BinarySearchTree.insertNodeRcrv(root, testArray[i]);
-		}
-
-		int[] ret = BinaryTreeUtil.traverseInOrder(root);
-		ArrayUtil.printArrayWithIndex(ret, 5);
-		return;
+		f.combinationSum2(testArray, target);
 	}
 }
