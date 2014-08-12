@@ -1,5 +1,7 @@
 package Tree;
 
+import java.util.ArrayDeque;
+import java.util.Queue;
 import java.util.Stack;
 
 public class BinaryTreeUtil {
@@ -95,6 +97,38 @@ public class BinaryTreeUtil {
 			}
 		}
 		return ret;
+	}
+
+	public static void printByLevel(TreeNode root) {
+		if (root == null) {
+			System.out.println("(Empty Tree)");
+			return;
+		}
+		Queue<TreeNode> q = new ArrayDeque<TreeNode>();
+		q.add(root);
+		while (q.size() > 0) {
+			int qSize = q.size();
+			for (int i = 0; i < qSize; ++i) {
+				TreeNode cur = q.poll();
+				System.out.print(String.format("[%1$12s]", cur.data));
+				if (cur.left != null)
+					q.add(cur.left);
+				if (cur.right != null)
+					q.add(cur.right);
+			}
+			System.out.println();
+		}
+
+	}
+
+	public static TreeNode rotateRight(TreeNode curNode) {
+		if (curNode == null || curNode.left == null) {
+			return null;
+		}
+		TreeNode newHead = curNode.left;
+		curNode.left = curNode.left.right;
+		newHead.right = curNode;
+		return newHead;
 	}
 
 	public static int numOfNodesInTreeRrcv(TreeNode cur) {
