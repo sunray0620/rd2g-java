@@ -6,7 +6,8 @@ import java.util.List;
 import java.util.Stack;
 
 public class LeetCode {
-
+	
+	// TODO: Separate them into different classes.
 	/*************************
 	 * Valid Number
 	 * 
