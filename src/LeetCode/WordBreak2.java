@@ -53,14 +53,6 @@ public class WordBreak2 {
 		return slns.get(i * n + j);
 	}
 
-	private int getMaxLenInDict(Set<String> dict) {
-		int maxWordLen = 0;
-		for (String wordInDict : dict) {
-			maxWordLen = Math.max(maxWordLen, wordInDict.length());
-		}
-		return maxWordLen;
-	}
-
 	private ArrayList<HashSet<String>> initHashSets(int n) {
 		ArrayList<HashSet<String>> slns = new ArrayList<HashSet<String>>(n * n);
 		for (int i = 0; i < n; ++i) {
