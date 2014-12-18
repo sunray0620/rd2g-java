@@ -23,10 +23,15 @@ public class MinRotatedSortedArray2 {
 				}
 				
 			} else {
-				l++;
+				if (num[m] > num[l]) {
+					l = m;
+				} else if (num[m] < num[l]) {
+					u = m;
+				} else {
+				    ++l;
+				}
 			}
 		}
-		System.out.println(String.format("%d - %d", l, u));
 		return Math.min(num[l], num[u]);
 	}
 
