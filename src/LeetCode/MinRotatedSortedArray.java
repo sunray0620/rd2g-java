@@ -6,24 +6,28 @@ import java.util.Random;
 public class MinRotatedSortedArray {
 
 	public static int findMin(int[] num) {
-		if (num.length == 1)
-			return num[0];
-		int l = 0;
+	    int l = 0;
 		int u = num.length - 1;
+		// Two corner cases:
+		// 1. array length = 1
+		// 2. array already in order, not rotated.
+		if (l == u || num[l] < num[u])
+			return num[0];
+		
+		// Invariant during the binary search:
+		// l is always on the left of MIN
+		// u is always on the right of MIN, or is the MIN
 		while (l < u - 1) {
 			int m = (l + u) / 2;
-			if (num[u] > num[l]) {
-				// In order
-				return num[l];
+			if (num[m] > num[l]) {
+				l = m;
+			} else if (num[m] < num[l]) {
+				u = m;
 			} else {
-				if (num[m] > num[l]) {
-					l = m;
-				} else {
-					u = m;
-				}
+				// No duplicate, should never gets here.
 			}
 		}
-		return Math.min(num[l], num[u]);
+		return num[u];
 	}
 
 	private static void printArray(int[] arr) {
