@@ -1,6 +1,5 @@
 package Array;
 
-import java.util.Date;
 import java.util.Random;
 
 public class ArrayUtil {
@@ -39,7 +38,7 @@ public class ArrayUtil {
 	 */
 	public static int[] generateRandomArray(int generateSize, int minValue, int maxValue) {
 		int[] generatedArray = new int[generateSize];
-		Random rand = new Random((new Date()).getTime());
+		Random rand = new Random();
 		int range = maxValue - minValue + 1;
 		for (int i = 0; i < generatedArray.length; ++i) {
 			int newValue = minValue + rand.nextInt(range);
