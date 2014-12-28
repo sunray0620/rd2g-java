@@ -61,9 +61,7 @@ public class ReverseNodesKGroup {
 			h2.next = t2;
 			h1 = h2;
 			h2 = t2;
-
 		}
-
 	}
 
 	public static void main(String[] args) {
