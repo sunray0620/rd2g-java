@@ -6,16 +6,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-class TreeNode {
-	int val;
-	TreeNode left;
-	TreeNode right;
-
-	TreeNode(int x) {
-		val = x;
-	}
-}
-
 public class BinaryTreeLevelOrderTraversal2 {
 
 	public static List<List<Integer>> levelOrderBottom(TreeNode root) {
