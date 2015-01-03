@@ -51,8 +51,6 @@ public class MedianTwoSortedArrays {
 	}
 
 	public static void main(String[] args) {
-		int m = 11;
-		int n = 10;
 		int[] a = new int[] { 2, 3, 4, 5, 6 }; // ArrayUtil.generateRandomArray(m, 1, 100);
 		Arrays.sort(a);
 		int[] b = new int[] { 1 }; // ArrayUtil.generateRandomArray(n, 1, 100);
