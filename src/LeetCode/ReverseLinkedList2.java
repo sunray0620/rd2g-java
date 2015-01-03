@@ -1,17 +1,6 @@
 package LeetCode;
 
 public class ReverseLinkedList2 {
-
-	class ListNode {
-		int val;
-		ListNode next;
-
-		ListNode(int x) {
-			val = x;
-			next = null;
-		}
-	}
-
 	public ListNode reverseBetween(ListNode head, int m, int n) {
 		int posCount = 1;
 		// Set up two pointers, itr2 is always one step faster than itr1
