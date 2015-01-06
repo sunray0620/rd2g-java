@@ -24,6 +24,6 @@ public class BalancedBinaryTree {
 			return -1;
 		}
 
-		return Math.max(leftDepth, rightDepth);
+		return Math.max(leftDepth, rightDepth) + 1;
 	}
 }
